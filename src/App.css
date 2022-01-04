@@ -1,38 +1,90 @@
-.App {
+ /* .container {
+  display: grid;
+  grid-template-columns: auto 800px 200px auto;
+  grid-template-rows: 0.8fr auto auto 0.3fr;
+  gap: 5px 5px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Header Header Header Header"
+    ". EmployeeTitle Button ."
+    ". EmployeeCards EmployeeCards ."
+    "Footer Footer Footer Footer";
+} */
+
+.Header { 
+  /* grid-area: Header; */
+  padding: 10px; 
+  margin-bottom: 15px;
+  background-color: #efefef;
+  border-bottom: solid  #ccc 1px;
   text-align: center;
+  font-size: 4vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Footer { 
+  border-top: solid  #ccc 1px;
+  /* grid-area: Footer;  */
+  padding: 10px;
+  text-align: center;
+  font-size: 2vh;
+  background-color: #efefef;
+} 
+
+a {
+  text-decoration: none;
+  color: #111;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a:hover {
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.EmployeeList {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+ }
+
+
+ .Nav {
+   background-color: rgb(116, 143, 184);
+   padding: 10px 0 10px 80px;
+   color: #ffffff;
+   box-shadow: 0 0 28px 4px rgba(0,0,0,0.1);
+ }
+
+
+ .material-icons {
+  font-size: 24px;
+  display: inline-table;
+  position: relative;
+  top: 5px;
+ }
+
+ .Add {
+   font-size: 16px;
+   display: inline-table;
+   padding: 5px;
+ }
+
+/* .EmployeeTitle {
+  grid-area: EmployeeTitle; 
+  color: #fff;
+  background-color: blue;
+  border: 1px solid blue;
+  padding: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.Button {
+  grid-area: Button; 
+  width: 200px;
+  height: 40px;
+  color: #fff;
+  background-color: blue;
+  border: 1px solid blue;
+  font-size: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.EmployeeCards {
+  grid-area: EmployeeCards; 
+  padding: 10px;
+} */
