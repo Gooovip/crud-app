@@ -1,16 +1,23 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const EmployeeContext = createContext();
 
 const EmployeeContextProvider = (props) => {
 
-    const [employees, setEmployees] = useState(
-        [{id:1, fname: 'Ghadeer', lname: 'Jarullah', email: 'ghadeer@gmail.com', phone: '555-4444-333'},
-        {id:2, fname: 'Ali', lname: 'Jar', email: 'ali@gmail.com', phone: '574-4644-683'},
-        {id:3, fname: 'Ahmed', lname: 'Ali', email: 'Ahmed@gmail.com', phone: '542-6825-325'},
-        {id:4, fname: 'Jan', lname: 'Deep', email: 'jan@gmail.com', phone: '534-4321-603'}
+    const [employees, setEmployees] = useState([
+        {id:1, fname: 'Piper', lname: 'Yates', email: 'cras@protonmail.edu', phone: '(844) 610-4272'},
+        {id:2, fname: 'Tallulah', lname: 'Ryan', email: 'morbi@hotmail.com', phone: '1-832-351-7038'},
+        {id:3, fname: 'Luke', lname: 'Mcmahon', email: 'urna@yahoo.edu', phone: '(871) 158-3658'},
+        {id:4, fname: 'Porter', lname: 'Acosta', email: 'parturient@outlook.couk', phone: '1-264-684-4712'}
     ])
 
+    useEffect(()=> {
+        setEmployees(JSON.parse(localStorage.getItem('employees')))
+    },[])
+    
+    useEffect(() => {
+        localStorage.setItem('employees', JSON.stringify(employees));
+    })
 
     const addEmployee = (id, fname, lname, email, phone) => {
         setEmployees([...employees , {id, fname, lname, email, phone}])

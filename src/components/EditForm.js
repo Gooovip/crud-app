@@ -2,22 +2,20 @@ import {Form, Button} from 'react-bootstrap';
 import {EmployeeContext} from '../contexts/EmployeeContext';
 import {useContext, useState} from 'react';
 
-const AddForm = () => {
+ 
+const EditForm = ({theEmployee}) =>{
 
-    const {addEmployee} = useContext(EmployeeContext);
-    const [newEmployee, setNewEmployee] = useState({
-        id:"", fname:"", lname:"", email:"", phone:""
-    });
-
-    const onInputChange = (e) => {
-        setNewEmployee({...newEmployee,[e.target.name]: e.target.value})
-    }
-
-    const {id, fname, lname, email, phone} = newEmployee;
+    const id = theEmployee.id;
+    const [fname, setFname] = useState(theEmployee.fname);
+    const [lname, setLname] = useState(theEmployee.lname);
+    const [email, setEmail] = useState(theEmployee.email);
+    const [phone, setPhone] = useState(theEmployee.phone);
+    const {updateEmployee} = useContext(EmployeeContext);
+    const updatedEmployee = {id, fname, lname, email, phone}
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addEmployee(id, fname, lname, email, phone);
+        updateEmployee(id, updatedEmployee)
     }
 
     return (
@@ -25,12 +23,10 @@ const AddForm = () => {
         <Form onSubmit={handleSubmit}>
             <Form.Group className="m-2">
                 <Form.Control 
-                type="number" 
-                placeholder="Employee Number *" 
-                required
+                type="number"  
                 name="id"
                 value={id}
-                onChange = { (e) => onInputChange(e)}  
+                disabled
                 />
             </Form.Group >
             <Form.Group className="m-2">
@@ -40,7 +36,7 @@ const AddForm = () => {
                 required
                 name="fname"
                 value={fname}
-                onChange = { (e) => onInputChange(e)}  
+                onChange={(e)=> setFname(e.target.value)}  
                 />
             </Form.Group>
             <Form.Group className="m-2">
@@ -50,7 +46,7 @@ const AddForm = () => {
                 required
                 name="lname"
                 value={lname}
-                onChange = { (e) => onInputChange(e)} 
+                onChange={(e)=> setLname(e.target.value)}
                  />
             </Form.Group>
             <Form.Group className="m-2">
@@ -60,7 +56,7 @@ const AddForm = () => {
                 required
                 name="email"
                 value={email}
-                onChange = { (e) => onInputChange(e)} 
+                onChange={(e)=> setEmail(e.target.value)} 
                  />
             </Form.Group>
             <Form.Group className="m-2">
@@ -70,15 +66,15 @@ const AddForm = () => {
                 required
                 name="phone"
                 value={phone}
-                onChange = { (e) => onInputChange(e)}  
+                onChange={(e)=> setPhone(e.target.value)} 
                 />
             </Form.Group>
             <Button className="m-2 btn btn-secondary" variant="success" type="submit">
-                Add New Employee
+                Edit Employee
             </Button>
         </Form>
 
     )
 }
 
-export default AddForm;
+export default EditForm;
