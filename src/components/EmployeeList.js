@@ -17,7 +17,7 @@ const EmployeeList = () => {
         setShowAlert(true);
         setTimeout(() => {
             setShowAlert(false);
-        }, 2000)
+        }, 3000)
     }
 
     useEffect(() => {
@@ -41,7 +41,7 @@ const EmployeeList = () => {
                 </div>
             </div>
             <Alert show={showAlert} variant="success">
-                Emlployee List Updated Succefully!
+                Employees List Updated Successfully!
             </Alert>
             <div className="row">
                 <div className="col-12 justify-content-center EmployeeList">

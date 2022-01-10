@@ -5,7 +5,7 @@ import EmployeeContextProvider from './contexts/EmployeeContext';
 function App() {
   return (
     <div className="container">
-      <header className="Header"><a target="_blank" rel="noreferrer" href='https://plat4mation.com' ><img src={require('./Images/logo.png')} class="LogoImg" alt="logo"></img></a></header>
+      <header className="Header"><a target="_blank" rel="noreferrer" href='https://plat4mation.com' ><img src={require('./Images/logo.png')} className="LogoImg" alt="logo"></img></a></header>
 
       <div>
         <EmployeeContextProvider>
